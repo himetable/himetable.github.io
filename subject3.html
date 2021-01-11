@@ -1,0 +1,389 @@
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>하나고 시간표</title>
+
+	<style type="text/css">
+		html{height:100%;}
+		body{min-height:100%; padding-bottom: 100px;}
+		.parent {
+			width: 100%;
+			font-size: 30;
+			display: flex;
+		}
+		.title {
+			flex: 1;
+			font-weight: bolder;
+			padding: 10px 5px;
+			width: 20%;
+			height: 5%;
+			margin-bottom: 5px;
+			margin-right: 5px;
+			margin-left: 5px;
+			text-align: center;
+		}
+		.blank {
+			flex: 1;
+			font-size: 17;
+			padding: 10px 5px;
+			width: 20%;
+			height: 20px;
+			margin-bottom: 0.2%;
+			margin-right: 5px;
+			margin-left: 5px;
+			text-align: center;
+			border: 2px solid #ffffff;
+		}
+		.child {
+			font-size: 17;
+			flex: 1;
+            padding: 10px 5px;
+			border: 2px solid;
+			width: 20%;
+			height: 50px;
+			margin-bottom: 0.2%;
+			margin-right: 5px;
+			margin-left: 5px;
+			text-align: center;
+			background-color: #97d8c2;
+		}
+		.child:hover{
+			background-color: #6ca9d1;
+			transition: all ease 1s;
+		}
+
+		.nextButton {
+			position: fixed;
+  			left: 0;
+    		bottom: 0;
+    		width: 100%;
+			font-weight: bold;
+			font-size: 30;
+			border: 0px;
+			background-color: rgb(210, 240, 161);
+			width: 100%;
+			padding: 30px 0;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		var n = 0;
+		var selected_sub = Array(9);
+		function colorChanger(subbox) {
+			if(n != 9) {
+				if (subbox.style.background=='rgb(108, 169, 209)') {
+					subbox.style.background='#97d8c2';
+					var obj = document.getElementById('nownum');
+					obj.innerHTML = --n;
+				}
+				else{
+					subbox.style.background='#6ca9d1';
+					selected_sub[n++] = subbox.id;
+					var obj = document.getElementById('nownum');
+					obj.innerHTML = n;
+				}
+			}
+		}
+
+		function nextCheck() {
+
+			/** 3-2학기는 공강 8단위까지 허용 **/
+
+			if (n != 9) {
+				alert("9개 과목을 모두 선택해주세요");
+			}
+			else {
+				location.href="/hastable/display3.html?" + encodeURIComponent(selected_sub);
+			}
+		}
+	</script>
+
+	<br>
+	<H1 align="center">
+		수강할 과목을 선택해주세요
+		(<span id="nownum">0</span>)
+	</H1>
+	<div class="parent">
+		<div class="title">
+			국어
+		</div>
+		<div class="title">
+			수학
+		</div>
+		<div class="title">
+			영어
+		</div>
+		<div class="title">
+			사회
+		</div>
+		<div class="title">
+			과학
+		</div>
+	</div>
+	<div class="parent">
+		<button class="child" id="현대문학 감상" onclick="colorChanger(this)">
+            현대문학 감상
+		</button>
+		<button class="child" id="수학연습I" onclick="colorChanger(this)">
+			수학연습I
+		</button>
+		<button class="child" id="영어 비평적 읽기와 쓰기" onclick="colorChanger(this)">
+			비평적 읽기와 쓰기
+		</button>
+        <button class="child" id="동아시아사" onclick="colorChanger(this)">
+            동아시아사
+		</button>
+		<button class="child" id="융합과학 탐구" onclick="colorChanger(this)">
+			융합과학 탐구
+		</button>
+	</div>
+	<div class="parent">
+		<button class="child" id="실용국어" onclick="colorChanger(this)">
+			실용국어
+		</button>
+		<button class="child" id="수학 과제연구" onclick="colorChanger(this)">
+			수학 과제연구
+		</button>
+		<button class="child" id="심화영어II" onclick="colorChanger(this)">
+			심화영어II
+		</button>
+		<button class="child" id="사회 문화" onclick="colorChanger(this)">
+			사회 문화
+		</button>
+		<button class="child" id="화학 실험" onclick="colorChanger(this)">
+			화학 실험
+		</button>
+	</div>
+	<div class="parent">
+		<button class="child" id="심화 국어" onclick="colorChanger(this)">
+            심화 국어
+		</button>
+		<button class="child" id="미적분학II" onclick="colorChanger(this)">
+			미적분학II
+		</button>
+		<button class="child" id="심화 영어 작문I" onclick="colorChanger(this)">
+			심화 영어 작문I
+		</button>
+		<button class="child" id="비교 문화" onclick="colorChanger(this)">
+			비교 문화
+		</button>
+		<button class="child" id="생명과학 실험" onclick="colorChanger(this)">
+			생명과학 실험
+		</button>
+	</div>
+	<div class="parent">
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="수학적 사고와 통계" onclick="colorChanger(this)">
+			수학적 사고와 통계
+		</button>
+		<button class="child" id="시사영어" onclick="colorChanger(this)">
+			시사영어
+		</button>
+		<button class="child" id="국제 경제" onclick="colorChanger(this)">
+			국제 경제
+		</button>
+		<button class="child" id="현대 물리학I" onclick="colorChanger(this)">
+			현대 물리학I
+		</button>
+	</div>
+	<div class="parent">
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="고급 수학I" onclick="colorChanger(this)">
+			고급 수학I
+		</button>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="세포생물학" onclick="colorChanger(this)">
+			세포생물학
+		</button>
+	</div>
+	<div class="parent">
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="AP 미적분학" onclick="colorChanger(this)">
+			AP 미적분학
+		</button>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="고급 물리학" onclick="colorChanger(this)">
+			고급 물리학
+		</button>
+	</div>
+	<div class="parent">
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="고급 화학" onclick="colorChanger(this)">
+			고급 화학
+		</button>
+	</div>
+	<div class="parent">
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="고급 생명과학" onclick="colorChanger(this)">
+			고급 생명과학
+		</button>
+    </div>
+    <div class="parent">
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="고급 지구과학" onclick="colorChanger(this)">
+			고급 지구과학
+		</button>
+    </div>
+    <div class="parent">
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<div class="blank">
+			
+		</div>
+		<button class="child" id="정보과학" onclick="colorChanger(this)">
+			정보과학
+		</button>
+	</div>
+
+	<div class="parent">
+		<div class="title">
+			제2외국어
+		</div>
+		<div class="title">
+			예술
+		</div>
+		<div class="title">
+			체육
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+	</div>
+	<div class="parent">
+		<button class="child" id="일본어 회화II" onclick="colorChanger(this)">
+			일본어 회화II
+		</button>
+		<button class="child" id="음악 이론" onclick="colorChanger(this)">
+			음악 이론
+		</button>
+		<button class="child" id="운동과 건강" onclick="colorChanger(this)">
+			운동과 건강
+		</button>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+	</div>
+	<div class="parent">
+		<button class="child" id="중국어 회화II" onclick="colorChanger(this)">
+			중국어 회화II
+		</button>
+		<button class="child" id="미술 전공 실기" onclick="colorChanger(this)">
+			미술 전공 실기
+		</button>
+		<div class="blank">
+
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+	</div>
+	<div class="parent">
+		<button class="child" id="일본어 독해와 작문II" onclick="colorChanger(this)">
+            일본어 독해와 작문II
+		</button>
+		<button class="child" id="합주" onclick="colorChanger(this)">
+            합주
+		</button>
+		<div class="blank">
+
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+	</div>
+	<div class="parent">
+		<button class="child" id="중국어 독해와 작문II" onclick="colorChanger(this)">
+			중국어 독해와 작문II
+		</button>
+		<button class="child" id="미술 감상과 비평" onclick="colorChanger(this)">
+			미술 감상과 비평
+		</button>
+		<div class="blank">
+            
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+		<div class="blank">
+			<!-- margin -->
+		</div>
+	</div>
+
+	<div align="center">
+		<br>
+		<button class="nextButton" onclick=nextCheck()>
+			다음
+		</button>
+	</div>
+
+</body>
