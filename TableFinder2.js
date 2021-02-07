@@ -124,14 +124,14 @@ function search(idx) {
                     /** Check Subject & Block **/
                     subchk[k] = true;
                     timechk[i] = true;
-                    if (i == 7) {
-                        timechk[9] = timechk[12] = true;
-                    } else if (i == 6) {
-                        timechk[10] = timechk[11] = true;
-                    } else if (i == 9 || i == 12) {
-                        timechk[7] = true;
-                    } else if (i == 10 || i == 11) {
+                    if (i == 6) {
+                        timechk[10] = timechk[12] = true;
+                    } else if (i == 4) {
+                        timechk[9] = timechk[11] = true;
+                    } else if (i == 10 || i == 12) {
                         timechk[6] = true;
+                    } else if (i == 9 || i == 11) {
+                        timechk[4] = true;
                     }
 
                     set(i, sub[k]); // PUSH
@@ -140,14 +140,14 @@ function search(idx) {
                     /** Undo Check **/
                     subchk[k] = false;
                     timechk[i] = false;
-                    if (i == 7) {
-                        timechk[9] = timechk[12] = false;
-                    } else if (i == 6) {
-                        timechk[10] = timechk[11] = false;
-                    } else if (!timechk[9] && !timechk[12]) {
-                        timechk[7] = false;
-                    } else if (!timechk[10] && !timechk[11]) {
+                    if (i == 6) {
+                        timechk[10] = timechk[12] = false;
+                    } else if (i == 4) {
+                        timechk[9] = timechk[11] = false;
+                    } else if (!timechk[10] && !timechk[12]) {
                         timechk[6] = false;
+                    } else if (!timechk[9] && !timechk[11]) {
+                        timechk[4] = false;
                     }
 
                     set(i, null); // POP
@@ -166,74 +166,74 @@ function set(time, subName) {
 
     /** 4A ~ 4H **/
     case 0:
-        tempTable[2][1] = subName;
+        tempTable[0][2] = subName;
+        tempTable[0][3] = subName;
+        tempTable[3][0] = subName;
         tempTable[3][1] = subName;
-        tempTable[4][3] = subName;
-        tempTable[6][4] = subName;
         break;
     case 1:
-        tempTable[6][0] = subName;
-        tempTable[6][1] = subName;
-        tempTable[0][3] = subName;
-        tempTable[1][3] = subName;
+        tempTable[0][4] = subName;
+        tempTable[0][5] = subName;
+        tempTable[2][2] = subName;
+        tempTable[2][3] = subName;
         break;
     case 2:
-        tempTable[0][2] = subName;
-        tempTable[1][2] = subName;
-        tempTable[4][4] = subName;
-        tempTable[5][4] = subName;
-        break;
-    case 3:
-        tempTable[0][0] = subName;
-        tempTable[1][0] = subName;
-        tempTable[2][2] = subName;
+        tempTable[0][6] = subName;
+        tempTable[1][6] = subName;
         tempTable[3][2] = subName;
-        break;
-    case 4:
-        tempTable[4][1] = subName;
-        tempTable[5][1] = subName;
-        tempTable[5][3] = subName;
-        tempTable[6][3] = subName;
-        break;
-    case 5:
-        tempTable[4][2] = subName;
-        tempTable[5][2] = subName;
-        tempTable[0][4] = subName;
-        tempTable[1][4] = subName;
-        break;
-    case 6:
-        tempTable[4][0] = subName;
-        tempTable[5][0] = subName;
-        tempTable[2][3] = subName;
         tempTable[3][3] = subName;
         break;
-    case 7:
-        tempTable[0][1] = subName;
+    case 3:
+        tempTable[1][0] = subName;
         tempTable[1][1] = subName;
-        tempTable[2][4] = subName;
+        tempTable[4][2] = subName;
+        tempTable[4][3] = subName;
+        break;
+    case 4:
+        tempTable[1][2] = subName;
+        tempTable[1][3] = subName;
         tempTable[3][4] = subName;
+        tempTable[3][5] = subName;
+        break;
+    case 5:
+        tempTable[1][4] = subName;
+        tempTable[1][5] = subName;
+        tempTable[3][6] = subName;
+        tempTable[4][6] = subName;
+        break;
+    case 6:
+        tempTable[2][0] = subName;
+        tempTable[2][1] = subName;
+        tempTable[4][4] = subName;
+        tempTable[4][5] = subName;
+        break;
+    case 7:
+        tempTable[2][4] = subName;
+        tempTable[2][5] = subName;
+        tempTable[4][0] = subName;
+        tempTable[4][1] = subName;
         break;
 
     /** 2A ~ 2E **/
     case 8:
-        tempTable[2][0] = subName;
-        tempTable[3][0] = subName;
+        tempTable[0][0] = subName;
+        tempTable[0][1] = subName;
         break;
     case 9:
-        tempTable[0][1] = subName;
-        tempTable[1][1] = subName;
+        tempTable[1][2] = subName;
+        tempTable[1][3] = subName;
         break;
     case 10:
-        tempTable[4][0] = subName;
-        tempTable[5][0] = subName;
+        tempTable[2][0] = subName;
+        tempTable[2][1] = subName;
         break;
     case 11:
-        tempTable[2][3] = subName;
-        tempTable[3][3] = subName;
+        tempTable[3][4] = subName;
+        tempTable[3][5] = subName;
         break;
     case 12:
-        tempTable[2][4] = subName;
-        tempTable[3][4] = subName;
+        tempTable[4][4] = subName;
+        tempTable[4][5] = subName;
         break;
     }
 }
