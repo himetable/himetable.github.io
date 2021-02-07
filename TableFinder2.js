@@ -124,14 +124,14 @@ function search(idx) {
                     /** Check Subject & Block **/
                     subchk[k] = true;
                     timechk[i] = true;
-                    if (i == 6) {
-                        timechk[10] = timechk[12] = true;
-                    } else if (i == 4) {
+                    if (i == 4) {
                         timechk[9] = timechk[11] = true;
-                    } else if (i == 10 || i == 12) {
-                        timechk[6] = true;
+                    } else if (i == 6) {
+                        timechk[10] = timechk[12] = true;
                     } else if (i == 9 || i == 11) {
                         timechk[4] = true;
+                    } else if (i == 10 || i == 12) {
+                        timechk[6] = true;
                     }
 
                     set(i, sub[k]); // PUSH
@@ -140,14 +140,14 @@ function search(idx) {
                     /** Undo Check **/
                     subchk[k] = false;
                     timechk[i] = false;
-                    if (i == 6) {
-                        timechk[10] = timechk[12] = false;
-                    } else if (i == 4) {
+                    if (i == 4) {
                         timechk[9] = timechk[11] = false;
-                    } else if (!timechk[10] && !timechk[12]) {
-                        timechk[6] = false;
+                    } else if (i == 6) {
+                        timechk[10] = timechk[12] = false;
                     } else if (!timechk[9] && !timechk[11]) {
                         timechk[4] = false;
+                    } else if (!timechk[10] && !timechk[12]) {
+                        timechk[6] = false;
                     }
 
                     set(i, null); // POP
