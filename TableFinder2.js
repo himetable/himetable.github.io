@@ -144,12 +144,10 @@ function search(idx) {
                         timechk[9] = timechk[11] = false;
                     } else if (i == 6) {
                         timechk[10] = timechk[12] = false;
-                    } else if (i == 9 || i == 11){//!timechk[9] && !timechk[11]) {
+                     } else if (i == 9 || i == 11) {
                         timechk[4] = false;
-                        timechk[9] = timechk[11] = false;
-                    } else if (i == 10 || i == 12){//!timechk[10] && !timechk[12]) {
+                    } else if (i == 10 || i == 12) {
                         timechk[6] = false;
-                        timechk[10] = timechk[12] = false;
                     }
 
                     set(i, null); // POP
