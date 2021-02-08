@@ -28,7 +28,7 @@ window.onkeydown = function() {
     else if (event.keyCode == '39' || event.keyCode == '38') {
         if(nowtable != n - 1) {
             displayTable(++nowtable);
-            this.setSub("nownum", nowtable+1);
+            this.setSub("nownum", nowtable+1);.
         }
     }
 }
