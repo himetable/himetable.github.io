@@ -186,6 +186,8 @@ function set(time, subName) {
     case 3:/** 4D **/
         tempTable[6][0] = subName;
         tempTable[6][1] = subName;
+        tempTable[2][3] = subName;
+        tempTable[3][3] = subName;
         break;
     case 4:
         tempTable[4][1] = subName;
