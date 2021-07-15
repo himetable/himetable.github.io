@@ -140,14 +140,14 @@ function search(idx) {
                     /** Undo Check **/
                     subchk[k] = false;
                     timechk[i] = false;
-                    if (i == 4) {
-                        timechk[9] = timechk[11] = false;
-                    } else if (i == 6) {
-                        timechk[10] = timechk[12] = false;
-                     } else if (!timechk[9] && !timechk[11]) {
-                         timechk[4] = false; 
-                     } else if (!timechk[10] && !timechk[12]) {
+                    if (i == 6) {
+                        timechk[10] = timechk[11] = false;
+                    } else if (i == 7) {
+                        timechk[9] = timechk[12] = false;
+                     } else if (!timechk[10] && !timechk[11]) {
                          timechk[6] = false; 
+                     } else if (!timechk[9] && !timechk[12]) {
+                         timechk[7] = false; 
                      }
 
                     set(i, null); // POP
